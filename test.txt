@@ -1,0 +1,92 @@
+
+    try {
+        // Update Table 1
+        Employee::where('id', $id)->update(['delete1' => 1]);
+
+        // Update Table 2
+        Staff::where('emp_id', $id)->update(['delete1' => 1]);
+
+        DB::commit();
+
+        return redirect()->back()->with('success', 'Data updated successfully');
+    } catch (\Exception $e) {
+        // If an error occurs, rollback the transaction
+        DB::rollback();
+        
+        return redirect()->back()->with('error', 'Failed to update data');
+    }
+    
+SELECT * FROM `leaves` `l` INNER JOIN `leave_types` `lt` ON l.lt_id=lt.id WHERE 1;
+    INSERT INTO `leave_types`(`id`, `lt_name`, `total_leave_year`, `status`) VALUES (1,'Casual Leave',15,0),(2,'Vacaton Leave',15,0),(3,'Marternity/Parentinity Leave',15,0),(4,'Family/Medical Leave',15,0),(5,'Study Leave',15,0),(6,'Special Leave',15,0),(7,'Military Leave',15,0),(8,'Administrative Leave',15,0),(9,'Stick Leave',15,0),(10,'Other Leave',15,0)
+
+     <div class="row mb-4">
+                                            <div class="col">
+                                                <label class="form-check-label" for="start-date">
+                                                    Duration:</label>
+
+                                                <input type="date" id="start-date" class="form-control" name="startDate">
+                                                <label class="form-check-label" for="email">TO</label>
+                                                <input type="date" id="end-date" class="form-control" name="endDate">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-4">
+                                            <div class="col-sm-12">
+                                                <label class="form-check-label" for="email">Leave Type:</label>
+                                                <select class="form-select" id="inlineFormSelectPref">
+                                                    <option value="Select a leave type">Select a leave type</option>
+                                                    <option value="CL">CL</option>
+                                                    <option value="VL">VL</option>
+                                                    <option value="ML">ML</option>
+                                                    <option value="PL">PL</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-sm-12">
+                                                <label class="form-check-label" for="email">Reason:</label>
+                                                <textarea id="leave-reason" class="form-control" name="leaveReason" rows="4" cols="50"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-sm-12">
+                                                <input class="btn btn-primary" type="submit" value="Request">
+                                            </div>
+                                        </div>
+
+
+                                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#empId').keyup(function() {
+                var empId = $(this).val();
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('emp_data') }}",
+                    data: {
+                        'empId': empId, // Use 'empId' instead of '{{ $id }}'
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        // Update HTML with fetched data
+                        $('#first_name').text(response.first_name);
+                        $('#last_name').text(response.last_name);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+    gender==1? "Male":gender==2? "Female" :gender=<3? "other": "undefined")
+        $to = $request->input('email');
+        $subject =  $request->input('subject');
+        $message =  $request->input('message');
+        
+
+
+        INSERT INTO `admins` (`id`, `emp_id`, `first_name`, `last_name`, `dpt_id`, `dst_id`, `dob`, `image`, `email`, `mobile_no`, `password`, `created_at`, `updated_at`, `delete3`) VALUES ('2', '2', 'rahul', 'raghu', '2', '1', '2024-04-08', 'image/1712573705_img3.jpg', 'rahul@unicloudtech.com', '1234567890', '$2y$10$WZVl99N0hR0cf9f8tboBRehxSP.aEt5tlVymQjyBMpdj.fClqdE.O', NULL, NULL, '0'), ('3', '3', 'Kanishka', 'Purohit', '2', '2', '2004-11-01', 'image/1712654759_img3.jpg', 'abhay2004panwar@gmail.com', '9079128741', '$2y$10$Pty4M9KD63hsilqjyW/plOPLfrDWEPGO9KK8dqUXTJxPrFfk43AQO', NULL, NULL, '0');
