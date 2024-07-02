@@ -372,6 +372,7 @@ class Mycontroller extends Controller
                 Session::put('admin_logged', true);
                 Session::put('admin_data', $employee);
 
+                
                 return redirect()->route('tables');
             } else {
 
@@ -593,6 +594,7 @@ class Mycontroller extends Controller
     }
     public function update(Request $request)
     {
+        dd($request->all);
         $employee = Employee::find($request->input('id'));
         $employee->first_name = $request->input('first_name');
         $employee->last_name = $request->input('last_name');
@@ -608,6 +610,25 @@ class Mycontroller extends Controller
         // die;
 
         return redirect()->route('datatable-employees')->with('success', 'updated successfully');
+    }
+    public function profile_update(Request $request)
+    {
+        dd($request->all);
+        $employee = Employee::find($request->input('id'));
+        $employee->first_name = $request->input('first_name');
+        $employee->last_name = $request->input('last_name');
+        $employee->gender = $request->input('gender');
+        $employee->dpt_id = $request->input('department');
+        $employee->dst_id = $request->input('designation');
+        $employee->mobile_no = $request->input('mobile_no');
+        $employee->addresses = $request->input('address');
+        $employee->save();
+        //     echo "<pre>";
+        // print_r($signup->toArray());
+        // echo "</pre>";
+        // die;
+
+        return redirect()->back()->with('success', 'updated successfully');
     }
     public function update_leaves(Request $request)
     {
